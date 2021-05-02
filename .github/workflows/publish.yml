@@ -7,11 +7,11 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      uses: ./
-      with:
-        post_title: 'New update!'
-        post_html: '<p>Content</p>'
-        post_excerpt: 'Excerpt'
-        post_tags: 'Tag 1,Tag 2'
-        ghost_url: ${{ secrets.GHOST_URL }}
-        ghost_admin_key: ${{ secrets.GHOST_ADMIN_KEY }}
+      - uses: ./
+        with:
+          post_title: 'New update!'
+          post_html: '<p>Content</p>'
+          post_excerpt: 'Excerpt'
+          post_tags: 'Tag 1,Tag 2'
+          ghost_url: ${{ secrets.GHOST_URL }}
+          ghost_admin_key: ${{ secrets.GHOST_ADMIN_KEY }}
