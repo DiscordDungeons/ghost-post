@@ -1,0 +1,3 @@
+ts: true
+bail: true
+comments: true

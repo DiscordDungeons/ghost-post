@@ -1,0 +1,11 @@
+name: 'Ghost Action'
+description: 'GitHub action for publishing to a Ghost instance'
+author: 'Discord Dungeons'
+inputs:
+  milliseconds: # change this
+    required: true
+    description: 'input description here'
+    default: 'default value if applicable'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

@@ -1,0 +1,1 @@
+docker run -d --name ghost-test -p 3001:2368 -v blog:/var/lib/ghost/content ghost:alpine

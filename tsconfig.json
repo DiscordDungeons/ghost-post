@@ -1,0 +1,27 @@
+{
+	"ts-node": {
+		"files": true
+	},
+	"compilerOptions": {
+		"target": "ES2018",
+		"module": "CommonJS",
+		"allowJs": true,
+		"checkJs": true,
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"outDir": "./dist",
+		"declaration": true,
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"resolveJsonModule": true,
+		"lib": ["es2018", "esnext.asynciterable"]
+	},
+	"exclude": ["node_modules"],
+	"include": [
+		"src",
+		"tests"
+	],
+  }
