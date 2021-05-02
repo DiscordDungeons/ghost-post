@@ -1,6 +1,9 @@
 name: 'Ghost Post'
 description: 'GitHub action for publishing to a Ghost instance'
 author: 'Discord Dungeons'
+branding:
+  icon: 'book-open'
+  color: 'green'
 inputs:
   post_title:
     required: true
