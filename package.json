@@ -1,13 +1,13 @@
 {
-  "name": "ghost-action",
+  "name": "ghost-post",
   "version": "1.0.0",
   "description": "GitHub Action for publishing to a Ghost instance",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc -p tsconfig.prod.json",
     "lint": "eslint src/**/*.ts",
-    "test": "tap ",
-    "clean": "rm -rf dist",
+    "test": "tap",
+    "clean": "rm -rf dist && rm -rf lib",
     "package": "ncc build --source-map --license licenses.txt"
   },
   "dependencies": {

@@ -11,7 +11,7 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"outDir": "./dist",
+		"outDir": "./lib",
 		"declaration": true,
 		"moduleResolution": "node",
 		"experimentalDecorators": true,

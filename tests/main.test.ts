@@ -1,4 +1,4 @@
-import { PostParams } from '@tryghost/admin-api'
+import { GhostAdminAPIOptions, PostParams } from '@tryghost/admin-api'
 import * as core from '@actions/core'
 
 import dotenv from 'dotenv'
@@ -14,6 +14,12 @@ const params: PostParams = {
 	html: core.getInput('POST_HTML', { required: true }),
 	custom_excerpt: core.getInput('POST_EXCERPT'),
 	tags: core.getInput('POST_TAGS').split(','),
+}
+
+const options: GhostAdminAPIOptions = {
+	url: core.getInput('GHOST_URL', { required: true }),
+	key: core.getInput('GHOST_ADMIN_KEY', { required: true }),
+	version: "v3",
 }
 
 t.test('Params are set', async t => {
@@ -51,7 +57,7 @@ t.test('Params are set', async t => {
 
 t.test('Adds a post with excerpt', async t => {
 	t.plan(3)
-	const post = await addPost(params)
+	const post = await addPost(options, params)
 	
 	t.equal(post.title, params.title, `Post title is ${params.title}`)
 	t.equal(post.status, 'draft', `Post status is draft`)
@@ -67,7 +73,7 @@ t.test('Adds a post without excerpt', async t => {
 
 	delete params.custom_excerpt
 
-	const post = await addPost(params)
+	const post = await addPost(options, params)
 
 	t.equal(post.title, params.title, `Post title is ${params.title}`)
 	t.equal(post.status, 'draft', `Post status is draft`)

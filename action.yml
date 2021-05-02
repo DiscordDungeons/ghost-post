@@ -1,11 +1,23 @@
-name: 'Ghost Action'
+name: 'Ghost Post'
 description: 'GitHub action for publishing to a Ghost instance'
 author: 'Discord Dungeons'
 inputs:
-  milliseconds: # change this
+  post_title:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'The title of the post'
+  post_html:
+    required: true
+    description: 'The content of the post, in HTML'
+  post_excerpt:
+    description: 'A custom excerpt for the post'
+  post_tags:
+    description: 'A list of tags to apply to the post. Seperate multiple using a comma'
+  ghost_url:
+    required: true
+    description: 'The URL of the Ghost instance to post to'
+  ghost_admin_key:
+    required: true
+    description: 'The admin API key of your ghost integration'
 runs:
   using: 'node12'
   main: 'dist/index.js'

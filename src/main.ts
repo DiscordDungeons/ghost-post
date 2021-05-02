@@ -1,6 +1,6 @@
 
 import * as core from '@actions/core'
-import { PostParams } from '@tryghost/admin-api'
+import { GhostAdminAPIOptions, PostParams } from '@tryghost/admin-api'
 import { addPost } from './addPost'
 
 const params: PostParams = {
@@ -10,9 +10,15 @@ const params: PostParams = {
 	tags: core.getInput('POST_TAGS').split(','),
 }
 
+const options: GhostAdminAPIOptions = {
+	url: core.getInput('GHOST_URL', { required: true }),
+	key: core.getInput('GHOST_ADMIN_KEY', { required: true }),
+	version: "v3",
+}
+
 async function run(): Promise<void> {
 	try {
-		const post = await addPost(params)
+		const post = await addPost(options, params)
 
 		core.setOutput('postId', post.id)
 	} catch (error) {
